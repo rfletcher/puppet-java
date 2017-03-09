@@ -25,22 +25,12 @@ class java::params {
                 'alternative'      => "java-1.8.0-openjdk-${::architecture}",
                 'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
                 'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
-                'ppa'              => {
-                  'name'   => 'openjdk-r',
-                  'uri'    => 'ppa:openjdk-r/ppa',
-                  'origin' => 'LP-PPA-openjdk-r',
-                },
               },
               'jre' => {
                 'package'          => 'openjdk-8-jre-headless',
                 'alternative'      => "java-1.8.0-openjdk-${::architecture}",
                 'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
                 'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
-                'ppa'              => {
-                  'name'   => 'openjdk-r',
-                  'uri'    => 'ppa:openjdk-r/ppa',
-                  'origin' => 'LP-PPA-openjdk-r',
-                },
               },
             },
           }
@@ -54,22 +44,12 @@ class java::params {
                 'alternative'      => "java-1.7.0-openjdk-${::architecture}",
                 'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
                 'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
-                'ppa'              => {
-                  'name'   => 'openjdk-r',
-                  'uri'    => 'ppa:openjdk-r/ppa',
-                  'origin' => 'LP-PPA-openjdk-r',
-                },
               },
               'jre' => {
                 'package'          => 'openjdk-7-jre-headless',
                 'alternative'      => "java-1.7.0-openjdk-${::architecture}",
                 'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
                 'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
-                'ppa'              => {
-                  'name'   => 'openjdk-r',
-                  'uri'    => 'ppa:openjdk-r/ppa',
-                  'origin' => 'LP-PPA-openjdk-r',
-                },
               },
             },
             8 => {
@@ -78,22 +58,12 @@ class java::params {
                 'alternative'      => "java-1.8.0-openjdk-${::architecture}",
                 'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
                 'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
-                'ppa'              => {
-                  'name'   => 'openjdk-r',
-                  'uri'    => 'ppa:openjdk-r/ppa',
-                  'origin' => 'LP-PPA-openjdk-r',
-                },
               },
               'jre' => {
                 'package'          => 'openjdk-8-jre-headless',
                 'alternative'      => "java-1.8.0-openjdk-${::architecture}",
                 'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
                 'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
-                'ppa'              => {
-                  'name'   => 'openjdk-r',
-                  'uri'    => 'ppa:openjdk-r/ppa',
-                  'origin' => 'LP-PPA-openjdk-r',
-                },
               },
             },
           }

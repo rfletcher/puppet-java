@@ -5,6 +5,7 @@ define java::private::distribution(
 ) {
   include ::apt
   include ::java::params
+  include ::java::ppa
 
   validate_re( $distribution, '^(jre|jdk)$' )
   validate_re( $version, '^[0-9]$' )
@@ -17,7 +18,6 @@ define java::private::distribution(
       $alternative_path = $config[$distribution]['alternative_path']
       $package_name     = $config[$distribution]['package']
       $java_home        = $config[$distribution]['java_home']
-      $ppa              = $config[$distribution]['ppa']
 
       $jre_flag = $package_name ? {
         /headless/ => '--jre-headless',
@@ -30,22 +30,10 @@ define java::private::distribution(
     fail( "Java major version ${version} is not supported." )
   }
 
-  # configure a PPA?
-  if $ppa {
-    if ! defined( Apt::Ppa[$ppa['uri']] ) {
-      ::apt::ppa { $ppa['uri']: } ->
-      ::apt::pin { $ppa['name']:
-        originator => $ppa['origin'],
-        priority   => 600,
-      } ->
-      Class['::apt::update']
-    }
-
-    Class['::apt::update'] -> Package[$package_name]
-  }
-
   # install the distribution
-  package { $package_name: }
+  package { $package_name:
+    require => Class['::apt::update'],
+  }
 
   # set as the system default?
   if $default {
