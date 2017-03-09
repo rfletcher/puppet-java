@@ -1,6 +1,7 @@
 class java(
-  $distribution = 'jre',
-  $version      = undef,
+  $distribution    = 'jre',
+  $version         = undef,
+  $default_version = undef,
 ) {
   include ::java::params
 

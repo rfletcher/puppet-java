@@ -1,5 +1,5 @@
 define java::private::distribution(
-  $default      = false,
+  $default      = undef,
   $distribution = 'jre',
   $version      = $name,
 ) {
@@ -9,6 +9,15 @@ define java::private::distribution(
 
   validate_re( $distribution, '^(jre|jdk)$' )
   validate_re( $version, '^[0-9]$' )
+
+  if $default == undef {
+    $real_default = hiera( 'java::default_version', undef ) ? {
+      $version => true,
+      default  => undef,
+    }
+  } else {
+    $real_default = $default
+  }
 
   if has_key( $::java::params::java, $version ) {
     $config = $::java::params::java[$version]
@@ -36,7 +45,7 @@ define java::private::distribution(
   }
 
   # set as the system default?
-  if $default {
+  if $real_default {
     package { 'java-common':
       ensure  => present,
       require => Package[$package_name],
