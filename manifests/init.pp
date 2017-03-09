@@ -9,6 +9,10 @@ class java(
 
   if is_array( $version ) {
     $distribution_classes = suffix( prefix( $version, '::java::' ), "::${distribution}" )
+
+    if $default_version == undef {
+      warning( "When specifying multiple java versions, you should also specify java::default_version. Behavior otherwise is undefined." )
+    }
   } else {
     validate_re( "${version}", '^[0-9]?$' ) # must cast int to string
 
