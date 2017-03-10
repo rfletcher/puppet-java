@@ -45,7 +45,7 @@ define java::private::distribution(
       ::apt::ppa { $ppa['uri']: } ->
       ::apt::pin { $ppa['name']:
         originator => $ppa['origin'],
-        priority   => 600,
+        priority   => 400,
       } ->
       Class['::apt::update']
     }
