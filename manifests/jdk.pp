@@ -16,6 +16,6 @@ class java::jdk {
   if ! defined( $distribution_class ) {
     fail( "Java distribution \"jdk\" is not supported for version ${major_version}." )
   } else {
-    incldue $distribution_class
+    include $distribution_class
   }
 }
