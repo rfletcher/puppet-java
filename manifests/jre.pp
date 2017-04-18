@@ -3,7 +3,7 @@ class java::jre {
 
   $version = hiera( 'java::version' )
 
-  validate_re( $version, '^[0-9]?$' )
+  validate_re( "${version}", '^[0-9]?$' )
 
   if $version =~ /^[0-9]$/ {
     $major_version = $version

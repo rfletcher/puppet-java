@@ -7,7 +7,7 @@ define java::private::distribution(
   include ::java::params
 
   validate_re( $distribution, '^(jre|jdk)$' )
-  validate_re( $version, '^[0-9]$' )
+  validate_re( "${version}", '^[0-9]?$' )
 
   if $default == undef {
     $real_default = hiera( 'java::default_version', undef ) ? {
