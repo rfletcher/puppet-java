@@ -14,10 +14,9 @@ class java::ssl(
   # configure static SSL config
 
   file { $dir:
-    ensure  => $ensure ? { absent => $ensure, default => directory, },
-    force   => true,
-    mode    => '0550',
-    recurse => true,
+    ensure => $ensure ? { absent => $ensure, default => directory, },
+    force  => true,
+    mode   => '0555',
   }
 
   file { "${dir}/ca.key":
